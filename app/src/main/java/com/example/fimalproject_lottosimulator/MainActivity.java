@@ -4,9 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.fimalproject_lottosimulator.databinding.ActivityMainBinding;
 
@@ -23,6 +25,8 @@ public class MainActivity extends BaseActivity {
 
     List<TextView> winNumTxts = new ArrayList<>();
 
+
+
     long useMoney = 0L;
 
     long winMoney = 0L;
@@ -35,6 +39,24 @@ public class MainActivity extends BaseActivity {
     int unRankedCount = 0;
 
     List<TextView> myNumTxts = new ArrayList<>();
+
+    Handler mHandler = new Handler();
+    Runnable buyLottoRunnable = new Runnable() {
+        @Override
+        public void run() {
+            if (useMoney < 1000000) {
+                makeLottoWinNumbers();
+                checkWinRank();
+                mHandler.post(buyLottoRunnable);
+            }
+            else {
+                Toast.makeText(mContext, "이제 그만하면 됐다..", Toast.LENGTH_SHORT).show();
+            }
+
+
+
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,16 +72,18 @@ public class MainActivity extends BaseActivity {
         binding.buyAutoLottoBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+//                while (true) {
+//
+//                    makeLottoWinNumbers();
+//                    checkWinRank();
+//
+//                    if (useMoney > 100000000) {
+//                        break;
+//                    }
+//                }
 
-                while (true) {
+                mHandler.post(buyLottoRunnable);
 
-                    makeLottoWinNumbers();
-                    checkWinRank();
-
-                    if (useMoney > 100000000) {
-                        break;
-                    }
-                }
             }
         });
 

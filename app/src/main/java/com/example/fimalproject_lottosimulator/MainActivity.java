@@ -22,6 +22,9 @@ public class MainActivity extends BaseActivity {
     int bonusNum = 0;
 
     List<TextView> winNumTxts = new ArrayList<>();
+
+    long useMoney = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,7 +39,10 @@ public class MainActivity extends BaseActivity {
         binding.buyOneLottoBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 makeLottoWinNumbers();
+                checkWinRank();
+
             }
         });
 
@@ -52,6 +58,12 @@ public class MainActivity extends BaseActivity {
         winNumTxts.add(binding.winNumTxt06);
 
     }
+
+    void checkWinRank() {
+        useMoney += 1000;
+        binding.useMoneyTxt.setText(String.format("%,d원", useMoney));
+    }
+
     void makeLottoWinNumbers() {
 
         for (int i = 0; i < winLottoNumArr.length; i ++) {

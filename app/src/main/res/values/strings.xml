@@ -1,14 +1,15 @@
 <resources>
     <string name="app_name">로또 시뮬레이터</string>
     <string name="win_number">당첨번호야</string>
-    <string name="my_number">내 입력 번호다닥</string>
-    <string name="buy_one_lotto">로또 한장 구매하기</string>
-    <string name="use_money">사용 금액 : </string>
-    <string name="win_money">당첨 금액 : </string>
+    <string name="my_number">내 입력 번호다다닥</string>
+    <string name="buy_one_lotto">로또 한장 구매</string>
+    <string name="buy_auto_lotto">로또 될때까지 계속 구매</string>
+    <string name="use_money">내 호주머니에서 나간 돈 : </string>
+    <string name="win_money">내 호주머니 채워줄 돈 : </string>
     <string name="first_rank">1등 : </string>
     <string name="second_rank">2등 : </string>
     <string name="third_rank">3등 : </string>
     <string name="fourth_rank">4등 : </string>
     <string name="fifth_rank">5등 : </string>
-    <string name="unranked">꽝일세 : </string>
+    <string name="unranked">꽝꽝꽝 : </string>
 </resources>
